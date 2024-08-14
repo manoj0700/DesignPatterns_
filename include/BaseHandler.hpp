@@ -1,19 +1,26 @@
 
 // StandardFormat check 
-// Length Validatoin 
+// Length Validation
 // Special Character Vvalidation
 #include <iostream>
 using namespace std;
 
 class BaseHandler {
 	public: 
-	     
-		 BaseHandler() {};
-		 virtual ~BaseHandler() {};
+		BaseHandler() : nextHandler(nullptr) {}	
+		virtual ~BaseHandler() {};
 
-	     virtual void Handle(std::string &email) {};
-		 virtual BaseHandler* nextHander() {};
+		virtual std::string Handle(std::string &email) {
+			if (nextHandler) {
+				return nextHandler->Handle(email);
+			}
+			return "Success";
+		}
+
+		void SetNextHandler(BaseHandler* nextHandler) {
+			this->nextHandler = nextHandler;
+		}
 
 	private: 
-	   std::string email;	 	    
+		BaseHandler* nextHandler; 	    
 };
