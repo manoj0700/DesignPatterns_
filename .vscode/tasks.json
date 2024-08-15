@@ -5,11 +5,12 @@
             "label": "C/C++: clang++ build active file",
             "command": "/usr/bin/clang++",
             "args": [
+                "-std=c++11",
                 "-fcolor-diagnostics",
                 "-fansi-escape-codes",
-                "-I${workspaceFolder}/include/",
+                "-I${workspaceFolder}/${relativeFileDirname}/../include/",
                 "-g",
-                "${file}",
+                "${workspaceFolder}/${relativeFileDirname}/*",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
