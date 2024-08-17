@@ -40,8 +40,6 @@ public:
 			std::cout << "Currently Bank Do not support the request " << std::endl;
 		}
 	}
-
-
 };
 
 // Invoker class that is responsibile to perform a user request and it decouples the main implemention class from the
