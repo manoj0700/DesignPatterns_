@@ -1,13 +1,13 @@
 #include <iostream> 
-#include <subscriber.hpp>
 #include <publisher.hpp>
+#include <chatGroupRequest.hpp>
 
 class GroupMember: public Subscriber {
 
 public: 
-   void subscribe(Publisher &publisher) override {
-         std::cout << this->getSubcriberName() << " Successfully Subscribed to the Group: " << publisher.getPublisherName() << std::endl;
-         publisher.addSubcribertoList(this);
+   void subscribe(Publisher* publisher) override {
+         std::cout << this->getSubcriberName() << " Successfully Subscribed to the Group: " << publisher->getPublisherName() << std::endl;
+         publisher->addSubcribertoList(this);
    }
 
    void notify(Publisher* publisher, const std::string & message) override {
@@ -49,12 +49,20 @@ int main () {
       GroupMember member1("Apoorva");
       GroupMember member2("Aradhya");
 
-      FriendsGroup group1("Masti Group");
+      FriendsGroup* mastiGroup = new FriendsGroup("Masti Group");
 
      // Member1 & member 2 subscribes to the Group1 i.e Masti Group
-      member1.subscribe(group1);
-      member2.subscribe(group1);
+      member1.subscribe(mastiGroup);
+      member2.subscribe(mastiGroup);
 
-      group1.sendMessage("Hey Budyy");
+      // Integrate Command pattern to seperate the Execution from the invocation
+      AdminRequest *publishMessageRequest = new AdminRequest(AdminRequestType::PUBLISH_MESSAGE,"Hey Buddy",mastiGroup);
+      AdminRequest *getSubscriberListRequest = new AdminRequest(AdminRequestType::GET_SUBSCRIBER_LIST,mastiGroup);
+
+      InvokeRequest *invokeRequest_1 = new InvokeRequest(publishMessageRequest);
+      invokeRequest_1->execute();
+
+      InvokeRequest *invokeRequest = new InvokeRequest(getSubscriberListRequest);
+      invokeRequest->execute();
 
 }

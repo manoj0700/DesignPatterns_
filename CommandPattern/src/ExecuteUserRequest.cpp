@@ -33,7 +33,7 @@ public:
 	}
 
 	void executeUserRequest() override {
-		if (m_bankRequestType == ADD_MONEY) {
+		if (m_bankRequestType == BankRequestType::ADD_MONEY) {
 			m_bankAccountUpdate->addMoneytoAccount(m_accountNumber,m_money);
 		}
 		else { 

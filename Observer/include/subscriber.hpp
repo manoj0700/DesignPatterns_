@@ -11,7 +11,7 @@ class Subscriber {
 
 public:
      virtual void notify(Publisher* publisher, const std::string& message) = 0;
-     virtual void subscribe(Publisher &publisher) = 0;  // Ensure that we do not instantiate any objects of this class
+     virtual void subscribe(Publisher* publisher) = 0;  // Ensure that we do not instantiate any objects of this class
      std::string getSubcriberName() {
       return m_subcriberName;
      }
