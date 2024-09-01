@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/Observer/include",
-                "${workspaceFolder}/Interpreter/include"
+                "${workspaceFolder}/Interpreter/include",
+                "${workspaceFolder}/StatePattern/include"
             ],
             "defines": [],
             "macFrameworkPath": [
