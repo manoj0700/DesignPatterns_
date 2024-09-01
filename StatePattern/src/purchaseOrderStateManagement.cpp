@@ -18,6 +18,9 @@ int main() {
    order->m_currentState->executeStateJob();
    order->setNextState();
 
+   delete delivered;
+   delete inTransit;
+   delete purchased;
 
     return 0;
 }

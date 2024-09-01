@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/Observer/include",
                 "${workspaceFolder}/Interpreter/include",
-                "${workspaceFolder}/StatePattern/include"
+                "${workspaceFolder}/StatePattern/include",
+                "${workspaceFolder}/StrategyPattern/include"
             ],
             "defines": [],
             "macFrameworkPath": [
