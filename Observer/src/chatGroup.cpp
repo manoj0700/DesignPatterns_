@@ -65,4 +65,10 @@ int main () {
       InvokeRequest *invokeRequest = new InvokeRequest(getSubscriberListRequest);
       invokeRequest->execute();
 
+
+      delete publishMessageRequest;
+      delete getSubscriberListRequest;
+      delete invokeRequest_1;
+      delete invokeRequest;
+
 }

@@ -4,7 +4,8 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/Observer/include"
+                "${workspaceFolder}/Observer/include",
+                "${workspaceFolder}/Interpreter/include"
             ],
             "defines": [],
             "macFrameworkPath": [
