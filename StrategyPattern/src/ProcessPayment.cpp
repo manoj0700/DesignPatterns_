@@ -1,11 +1,5 @@
 #include <PaymentProcessingStrategy.hpp>
 
-enum PaymentMethod {
-    UPI,
-    DebitCard,
-    CashOnDelivery
-};
-
 int main() {
 
 Payment debitCardPayment(new DebitCardPaymentStrategy());

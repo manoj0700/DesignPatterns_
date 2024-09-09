@@ -1,5 +1,10 @@
 #include <iostream> 
 
+/*
+The Strategy Design Pattern is a behavioral design pattern that defines a family of algorithms, encapsulates each one,
+ and makes them interchangeable. The strategy pattern lets the algorithm vary independently from the clients that use 
+ it. It enables selecting an algorithm's behavior at runtime.*/
+
 class PaymentGatewayStrategy {
 public: 
     virtual void initiatePayment(){};
