@@ -8,13 +8,13 @@ of the algorithm without changing its overall structure. This pattern is used
  when you have multiple classes that follow the same basic steps, but some steps
 may vary in implementation
 */
-class CookingRecipieTemplate {
+class CookingRecipeTemplate {
 protected: 
     std::string recipie; 
     std::string ingredients;
 
 public: 
-  CookingRecipieTemplate(std::string recipie,std::string ingredients):recipie(recipie),ingredients(ingredients){};
+  CookingRecipeTemplate(std::string recipie,std::string ingredients):recipie(recipie),ingredients(ingredients){};
 
   std::string boilIngredients() {
     return "Boiling ingredients for the receipie: " + recipie + "\n"; 
@@ -34,10 +34,10 @@ public:
 
 };
 
-class SaladRecipie : public CookingRecipieTemplate {
+class SaladRecipe : public CookingRecipeTemplate {
 
   public:  
-    SaladRecipie(std::string recepieName,std::string ingredients):CookingRecipieTemplate(recepieName,ingredients){};
+    SaladRecipe(std::string recepieName,std::string ingredients):CookingRecipeTemplate(recepieName,ingredients){};
 
     std::string addSpecificIngredients() override {
        return "Adding " +  ingredients + " to the recepie \n"; 
@@ -48,10 +48,10 @@ class SaladRecipie : public CookingRecipieTemplate {
 
 
 int main() {
-  SaladRecipie russianSalad("Russian Salad","Tamatoe,Brocoli");
+  SaladRecipe russianSalad("Russian Salad","Tamatoe,Brocoli");
   std::cout << russianSalad.startCooking() << "\n\n";
 
-  SaladRecipie caesarSalad("Caesar Salad","Jalepno,Brocoli,Tamato");
+  SaladRecipe caesarSalad("Caesar Salad","Jalepno,Brocoli,Tamato");
   std::cout << caesarSalad.startCooking() << "\n\n";
 }
 

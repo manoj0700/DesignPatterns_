@@ -15,24 +15,24 @@ public:
 
 };
 
-class CookingRecipieTemplate: public Visitor {
+class CookingRecipeTemplate: public Visitor {
 protected: 
-    std::string recipie; 
+    std::string recipe; 
     std::string ingredients;
 
 public: 
-  CookingRecipieTemplate(std::string recipie,std::string ingredients):recipie(recipie),ingredients(ingredients){};
+  CookingRecipeTemplate(std::string recipie,std::string ingredients):recipe(recipe),ingredients(ingredients){};
 
   std::string boilIngredients() {
-    return "Boiling ingredients for the receipie: " + recipie + "\n"; 
+    return "Boiling ingredients for the receipie: " + recipe + "\n"; 
   }
 
   virtual std::string addSpecificIngredients() {
-    return "Adding" +  ingredients + " to the recepie: " + recipie  + "\n\n"; 
+    return "Adding" +  ingredients + " to the recepie: " + recipe  + "\n\n"; 
   }
 
   std::string washIngredients() {
-    return "Washing the ingredients for the recepie: " + recipie + "\n"; 
+    return "Washing the ingredients for the recepie: " + recipe + "\n"; 
   }
 
   std::string startCooking() {
@@ -40,23 +40,23 @@ public:
   }
 
   void handlePerson(std::string personName) override {
-      std::cout << "Cooking " << recipie << " for " << personName << " with " << ingredients << std::endl;
+      std::cout << "Cooking " << recipe << " for " << personName << " with " << ingredients << std::endl;
       std::cout << startCooking();
   }
 
 };
 
-class SaladRecipie : public CookingRecipieTemplate {
+class SaladRecipe : public CookingRecipeTemplate {
 
   public:  
-    SaladRecipie(std::string recepieName,std::string ingredients):CookingRecipieTemplate(recepieName,ingredients){};
+    SaladRecipe(std::string recepieName,std::string ingredients):CookingRecipeTemplate(recepieName,ingredients){};
 
     std::string addSpecificIngredients() override {
        return "Adding " +  ingredients + " to the recepie \n\n"; 
     }
 
     void handlePerson(std::string personName) override {
-      std::cout << "Cooking " << recipie << " for " << personName << " with " << ingredients << std::endl;
+      std::cout << "Cooking " << recipe << " for " << personName << " with " << ingredients << std::endl;
       std::cout << startCooking();
   }
 };
