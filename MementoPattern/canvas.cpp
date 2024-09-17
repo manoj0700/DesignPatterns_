@@ -1,5 +1,7 @@
 #include <iostream>
 
+// The Memento Pattern is a behavioral design pattern used to capture and store the current state of an object so that it can be restored to that state later, without violating the object's encapsulation.
+
 class CanvasMemento{
 
     friend class Canvas;
@@ -54,8 +56,4 @@ int main() {
     }
 
     canvas.clearAll();
-
-    for(std::string shape : canvas.getShapes()) {
-      std::cout << shape << std::endl;
-    }
 }
