@@ -1,10 +1,10 @@
-### Notes
+### STRATEGY PATTERN
 
 So let's say we have a Duck class, and each individual duck extends that class. Some ducks can fly, some can only quack, some can do both, and some can do neither.
 Below are some approaches we can try to simulate this. 
 
-Approach 1: 
-===========
+#### Approach 1: 
+
 1. We create a parent class naming it Duck and it contains methods like fly(), quack(),display() (abstract method) 
 2. Since our display method is abstract, we cannot instantiate the Duck class. We need to create a Concreate class. 
 3. We extend different type of ducks from this parent class and implement the display method in each class, as each duck can look different. 
@@ -12,25 +12,21 @@ Approach 1:
 we can override the quack() method in the rubber duck class, and make it to queek. Similarly, rubber duck cannot fly(), so we override the fly() method 
 as well and make not to fly. 
 
-Problems with this approach: 
-=============================
+#### Problems with this approach: 
 1. We are unable to re use the code efficiently as we are forced to override the methods to fit into the design.
 2. Duplicated code across different classes. Like there will be ducks that do not fly, and we need implement that method in all those classes.
 3. when we look into super class we do not get behaviour of all the ducks, and the objects are assigned at compiled time.
 
 
-Approach 2: 
-==============
+#### Approach 2: 
 1. We can introduce different interfaces, namely, flyabble and quackable. And the Duck class can have only display abstract method. 
 2. Whichever duck suitable to implement certain interface will implelment that. 
 
-Problems with this approach: 
-===============================
+#### Problems with this approach: 
 1. if there are high number of ducks, it will be really hard to change each the code in each implelmentation, leading to high maintenance. 
 2. Adding runtime behaviour to the object shows problem, like if we want to make the duck not flyabble during runtime. 
 
-Approach 3: 
-===================
+#### Approach 3: 
 Using principles such as 
 1. Isolate parts of the code that are likely to change so that changes affect only those parts and not the entire system.
 2. Program to the interface not to the implementation. 
@@ -47,5 +43,11 @@ Duck* duck = new RubberDuck();
 duck->setFlyBehavior(new NoFly());
 duck->setQuackBehavior(new Squeak());
 {code}
+
+From the above examples, it indicates prefering composition over inheritance giving more flexibliity to the design. Using composition opens up the possiblity of using 
+different strategies and helps to ensure the implementation is not tightly coupled to the concrete class. By seperating the frequent varying behaviours we are able to 
+do a selection on the behavious for individual ducks without the need of overwriting. Composition gives a "Has a" relationship in contrast with inheritance "is a" relationship. 
+
+
 
 
